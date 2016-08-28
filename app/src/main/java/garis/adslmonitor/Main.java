@@ -95,6 +95,7 @@ public class Main extends AppCompatActivity {
         chartDownSpeed.setDescription("");
         chartDownSpeed.setAutoScaleMinMaxEnabled(true);
         chartDownSpeed.setTouchEnabled(false);
+        chartDownSpeed.getAxisLeft().setAxisMinValue(0.0f);
 
         chartUpSpeed = (LineChart) findViewById(R.id.chartUpSpeed);
         dataD = new LineData();
@@ -104,6 +105,7 @@ public class Main extends AppCompatActivity {
         chartUpSpeed.setDescription("");
         chartUpSpeed.setAutoScaleMinMaxEnabled(true);
         chartUpSpeed.setTouchEnabled(false);
+        chartUpSpeed.getAxisLeft().setAxisMinValue(0.0f);
 
         chartHLog = (LineChart) findViewById(R.id.chartHLog);
         dataD = new LineData();
@@ -337,8 +339,8 @@ public class Main extends AppCompatActivity {
             setHLog.setFillAlpha(65);
             setHLog.setFillColor(ColorTemplate.getHoloBlue());
             setHLog.setDrawValues(false);
-            setHLog.setDrawCubic(true);
             setHLog.setDrawFilled(false);
+            setHLog.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
             dataHlog = new LineData(xVals, dataSets);
             HlogGraphUpdate=false;
@@ -372,8 +374,8 @@ public class Main extends AppCompatActivity {
             setSNR.setFillAlpha(65);
             setSNR.setFillColor(ColorTemplate.getHoloBlue());
             setSNR.setDrawValues(false);
-            setSNR.setDrawCubic(true);
             setSNR.setDrawFilled(false);
+            setSNR.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
             dataSNR = new LineData(xVals, dataSets);
             SNRGraphUpdate=false;
@@ -407,8 +409,8 @@ public class Main extends AppCompatActivity {
             setQLN.setFillAlpha(65);
             setQLN.setFillColor(ColorTemplate.getHoloBlue());
             setQLN.setDrawValues(false);
-            setQLN.setDrawCubic(true);
             setQLN.setDrawFilled(false);
+            setQLN.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
             dataQLN = new LineData(xVals, dataSets);
             QLNGraphUpdate=false;
@@ -538,13 +540,15 @@ public class Main extends AppCompatActivity {
         set.setColor(Color.GREEN);
         set.setCircleColor(Color.WHITE);
         set.setLineWidth(2f);
+        set.setCircleRadius(0);
         set.setCircleColor(Color.GREEN);
         set.setCircleColorHole(Color.GREEN);
         set.setFillAlpha(65);
         set.setFillColor(ColorTemplate.getHoloBlue());
         set.setDrawValues(false);
-        set.setDrawCubic(true);
         set.setDrawFilled(true);
+        set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        set.setCubicIntensity(0.2f);
         return set;
     }
 
@@ -555,13 +559,15 @@ public class Main extends AppCompatActivity {
         set.setColor(Color.RED);
         set.setCircleColor(Color.WHITE);
         set.setLineWidth(2f);
+        set.setCircleRadius(0);
         set.setCircleColor(Color.RED);
         set.setCircleColorHole(Color.RED);
         set.setFillAlpha(65);
         set.setFillColor(ColorTemplate.getHoloBlue());
         set.setDrawValues(false);
-        set.setDrawCubic(true);
         set.setDrawFilled(true);
+        set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        set.setCubicIntensity(0.2f);
         return set;
     }
 
